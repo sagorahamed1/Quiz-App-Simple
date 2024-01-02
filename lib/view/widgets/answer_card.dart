@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/color.dart';
+import 'right_and_rong_Icon.dart';
+
 class AnswerCard extends StatelessWidget {
   final String question;
   final bool isSelected;
@@ -28,23 +31,26 @@ class AnswerCard extends StatelessWidget {
         height: 70,
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.grey,
           borderRadius: BorderRadius.circular(25),
           border: Border.all(
             width: 2,
             color: isCorrectAnswer
-                ? Colors.green
+                ? AppColors.myGreen
                 : isWrongAnswer
-                ? Colors.red
-                : Colors.white,
+                ? AppColors.myRed
+                : AppColors.myGray,
           ),
         ),
             child:  Row(
               children: [
                 Expanded(
-                  child: Text(
-                    question,
-                    style: TextStyle(fontSize: 16),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      question,
+                      style: TextStyle(fontSize: 16,color: Colors.black),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -61,16 +67,19 @@ class AnswerCard extends StatelessWidget {
           : Container(
         height: 70,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Colors.grey,
                 borderRadius: BorderRadius.circular(25),
-                border: Border.all(color: Colors.white)
+                border: Border.all(color: Colors.grey)
               ),
               child:  Row(
                 children: [
                   Expanded(
-                    child: Text(
-                      question,
-                      style: TextStyle(fontSize: 16),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Text(
+                        question,
+                        style: TextStyle(fontSize: 16,color: Colors.black),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -83,21 +92,3 @@ class AnswerCard extends StatelessWidget {
   }
 }
 
-
-Widget buildCorrectIcon()=> CircleAvatar(
-  radius: 15,
-  backgroundColor: Colors.green,
-  child: Icon(
-    Icons.check,
-    color: Colors.white,
-  ),
-);
-
-Widget buildWrongIcon()=> CircleAvatar(
-  radius: 15,
-  backgroundColor: Colors.green,
-  child: Icon(
-    Icons.close,
-    color: Colors.red,
-  ),
-);

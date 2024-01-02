@@ -1,10 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:quize/utils/color.dart';
 import 'package:get/get.dart';
-
-import 'fl_chart.dart';
+import 'package:quize/utils/color.dart';
+import 'quize_screen.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -17,18 +16,17 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
 
   @override
-  void initState() {
+   initState() {
     super.initState();
-     Timer(Duration(seconds:2), () {
-         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> MyFiChart()));
-       // Get.to(HomeScreen());
+     Timer(const Duration(seconds:1), () {
+       Get.to(const QuizeScreen());
      });
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
            body: Container(
-             color: MyColors.spLass,
+             color: AppColors.spLass,
              child: Center(
                child: Image.asset('assets/splass_icon.png')),
              ),
