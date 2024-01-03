@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quize/utils/color.dart';
-import 'quize_screen.dart';
+import '../quize_screen/quize_screen.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
    initState() {
     super.initState();
-     Timer(const Duration(seconds:1), () {
+     Timer(const Duration(seconds: 2), () {
        Get.to(const QuizeScreen());
      });
   }
@@ -26,9 +26,9 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
            body: Container(
-             color: AppColors.spLass,
              child: Center(
-               child: Image.asset('assets/splass_icon.png')),
+               child: CircularProgressIndicator(color: Colors.redAccent,)
+             ),
              ),
            );
 

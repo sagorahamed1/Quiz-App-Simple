@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../utils/color.dart';
+import '../../../../utils/color.dart';
 import 'right_and_rong_Icon.dart';
 
 class AnswerCard extends StatelessWidget {
@@ -28,17 +29,21 @@ class AnswerCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: selectedAnswer != null
           ? Container(
-        height: 70,
+        height: 70.h,
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.grey,
+           color: isCorrectAnswer
+               ? AppColors.myGreen.withAlpha(70)
+               : isWrongAnswer
+               ? AppColors.myRed.withAlpha(70)
+               : Colors.white,
           borderRadius: BorderRadius.circular(25),
           border: Border.all(
-            width: 2,
+            width: 2.w,
             color: isCorrectAnswer
-                ? AppColors.myGreen
+                ? AppColors.myGreen.withAlpha(50)
                 : isWrongAnswer
-                ? AppColors.myRed
+                ? AppColors.myRed.withAlpha(50)
                 : AppColors.myGray,
           ),
         ),
@@ -46,15 +51,12 @@ class AnswerCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.only(left: 10),
                     child: Text(
                       question,
                       style: TextStyle(fontSize: 16,color: Colors.black),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 10,
                 ),
                 isCorrectAnswer
                 ?buildCorrectIcon()
@@ -65,9 +67,9 @@ class AnswerCard extends StatelessWidget {
             ),
       )
           : Container(
-        height: 70,
+        height: 70.h,
               decoration: BoxDecoration(
-                color: Colors.grey,
+                // color: Colors.grey,
                 borderRadius: BorderRadius.circular(25),
                 border: Border.all(color: Colors.grey)
               ),
@@ -75,20 +77,17 @@ class AnswerCard extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.only(left: 20),
                       child: Text(
                         question,
                         style: TextStyle(fontSize: 16,color: Colors.black),
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
                 ],
               ),
       ),
-    ); // You might want to return an empty container or null for unselected state
+    );
   }
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RactangularButton extends StatelessWidget {
   final VoidCallback? onPresed;
@@ -18,12 +19,12 @@ class RactangularButton extends StatelessWidget {
     return TextButton(
         onPressed: onPresed,
         child: SizedBox(
-          height: 50,
-          width: 200,
+          height: 50.h,
+          width: 200.w,
           child: Card(
-            color: onPresed != null ? Colors.orange : Colors.amber,
+            color: onPresed != null ? Colors.green : Colors.amber,
             child: Center(
-              child: Text(label,style: TextStyle(letterSpacing: 2,fontSize: 25,fontWeight: FontWeight.bold,color: Colors.black),),
+              child: Text(label,style: TextStyle(letterSpacing: 2,fontSize: 25.sp,fontWeight: FontWeight.bold,color: Colors.white),),
             ),
           ),
         )
